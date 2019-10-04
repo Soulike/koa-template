@@ -1,9 +1,9 @@
-import {router} from './Router';
+import router from './Router';
 import Koa from 'koa';
 import signale from 'signale';
 import {Response} from '../Class';
 
-export const dispatcher = (app: Koa): Koa.Middleware =>
+export default (app: Koa): Koa.Middleware =>
 {
     app
         .use(router.routes())
