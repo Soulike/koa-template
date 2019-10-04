@@ -1,7 +1,6 @@
 import Koa from 'koa';
-import body from 'koa-body';
 import {dispatcher} from './Dispatcher';
-import {BODY, SERVER} from './CONFIG';
+import {SERVER} from './CONFIG';
 import signale from 'signale';
 import {requestLogger} from './Middleware';
 
@@ -12,7 +11,6 @@ app.on('error', (e: Error) =>
     signale.error(`服务器未捕获的错误:\n${e.stack}`);
 });
 
-app.use(body(BODY));
 app.use(requestLogger());
 app.use(dispatcher(app));
 app.listen(SERVER.PORT, () =>
