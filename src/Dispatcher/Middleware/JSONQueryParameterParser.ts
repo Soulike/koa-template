@@ -1,5 +1,5 @@
 import Koa from 'koa';
-import {Response} from '../Class';
+import {Response} from '../../Class';
 import 'koa-body';
 
 /**
