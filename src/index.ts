@@ -1,6 +1,7 @@
 import Koa from 'koa';
 import dispatcher from './Dispatcher';
-import {SERVER} from './CONFIG';
+import {SERVER, SESSION} from './CONFIG';
+import session from 'koa-session';
 
 const app = new Koa();
 
@@ -8,7 +9,7 @@ app.on('error', (e: Error) =>
 {
     SERVER.ERROR_LOGGER(`未捕获的错误:\n${e.stack}`);
 });
-
+app.use(session({...SESSION}, app));
 app.use(dispatcher());
 app.listen(SERVER.PORT, () =>
 {

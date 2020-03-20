@@ -1,12 +1,17 @@
 import router from './Router';
 import compose from 'koa-compose';
-import errorProcessor from './Middleware/ErrorProcessor';
+import errorHandler from './Middleware/errorHandler';
+import responseHandler from './Middleware/responseHandler';
+import * as Interface from './Interface';
 
 export default () =>
 {
     return compose([
-        errorProcessor(),
+        responseHandler(),
+        errorHandler(),
         router.routes(),
         router.allowedMethods(),
     ]);
 };
+
+export {Interface};

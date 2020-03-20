@@ -1,9 +1,10 @@
 import Router from '@koa/router';
-import dispatcher from './Dispatcher';
+import exampleDispatcher from './Module/Example';
+import {IContext, IState} from './Interface';
 
-const router = new Router();
+const router = new Router<IState, IContext>();
 
 // 在此注入 router 到各个 dispatcher
-dispatcher(router);
+exampleDispatcher(router);
 
 export default router;
