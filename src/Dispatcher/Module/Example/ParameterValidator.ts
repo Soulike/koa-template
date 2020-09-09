@@ -1,7 +1,9 @@
-import {IParameterValidator} from '../../Interface';
+import {IRouteHandler} from '../../Interface';
 
-export const login: IParameterValidator = body =>
+export const login: IRouteHandler = () =>
 {
-    const {} = body;
-    return true;
+    return async (_ctx, next) =>
+    {
+        await next();
+    };
 };

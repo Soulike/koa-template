@@ -1,11 +1,6 @@
 import Router from '@koa/router';
 import {Session} from 'koa-session';
 
-export interface IParameterValidator
-{
-    (body: Readonly<any>): boolean
-}
-
 export interface IState
 {
     serviceResponse: Readonly<any>
