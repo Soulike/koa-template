@@ -10,7 +10,7 @@ const JSONQuerystringParser: IRouteHandler = () =>
     return async (ctx, next) =>
     {
         const {json} = ctx.request.query;
-        let parseResult = null;
+        let parseResult: object | null = null;
         if (typeof json === 'undefined') // 如果没有请求字符串，跳过
         {
             ctx.request.body = {};
@@ -18,7 +18,18 @@ const JSONQuerystringParser: IRouteHandler = () =>
         }
         try
         {
-            parseResult = JSON.parse(json);
+            if (typeof json === 'string')
+            {
+                parseResult = JSON.parse(json);
+            }
+            else
+            {
+                parseResult = {};
+                json.forEach(str =>
+                {
+                    parseResult = {...parseResult, ...JSON.parse(str)};
+                });
+            }
         }
         catch (e)
         {
