@@ -1,5 +1,5 @@
 import Koa from 'koa';
-import dispatcher from './Dispatcher';
+import {dispatcher} from './Dispatcher';
 import {SERVER, SESSION} from './CONFIG';
 import session from 'koa-session';
 

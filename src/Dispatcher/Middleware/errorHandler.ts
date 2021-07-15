@@ -2,7 +2,7 @@ import {SERVER} from '../../CONFIG';
 import {IRouteHandler} from '../Interface';
 import {ServiceResponse} from '../../Class';
 
-const errorHandler: IRouteHandler = () =>
+export const errorHandler: IRouteHandler = () =>
 {
     return async (ctx, next) =>
     {
@@ -24,5 +24,3 @@ const errorHandler: IRouteHandler = () =>
         }
     };
 };
-
-export default errorHandler;

@@ -1,10 +1,9 @@
-import router from './Router';
+import {router} from './Router';
 import compose from 'koa-compose';
-import errorHandler from './Middleware/errorHandler';
-import responseHandler from './Middleware/responseHandler';
-import * as Interface from './Interface';
+import {errorHandler} from './Middleware/errorHandler';
+import {responseHandler} from './Middleware/responseHandler';
 
-export default () =>
+export const dispatcher = () =>
 {
     return compose([
         responseHandler(),
@@ -14,4 +13,4 @@ export default () =>
     ]);
 };
 
-export {Interface};
+export * from './Interface';

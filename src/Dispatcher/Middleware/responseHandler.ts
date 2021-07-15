@@ -1,7 +1,7 @@
 import {IRouteHandler} from '../Interface';
 import {ServiceResponse} from '../../Class';
 
-const responseHandler: IRouteHandler = () =>
+export const responseHandler: IRouteHandler = () =>
 {
     return async (ctx, next) =>
     {
@@ -18,5 +18,3 @@ const responseHandler: IRouteHandler = () =>
         }
     };
 };
-
-export default responseHandler;
